@@ -1,0 +1,191 @@
+
+    
+body{
+    font-family: sans-serif;
+    margin: 20px 40px;
+    background-color:#BFDED9 ;
+}
+
+h3{
+    cursor: help;
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    
+}
+h5{
+    cursor: help;
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+input{
+    /* margin-top: 10px; */
+    height: 25px;
+    width: 150px;
+    border-radius: 20px/20px;
+    border:none;
+    padding-left: 15px;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+.room{
+    border: 50px;
+    border-color: burlywood;
+    font-size: 20px;
+    font-weight: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    text-transform: capitalize;
+    
+}
+input:focus{
+    border: 2px solid #6c00ff;
+    transform: translateX(15px);
+    width: 150px;
+}
+
+.formBox {
+    
+    padding: 3px;
+}
+
+Label {
+    font-size: 15px;
+    padding-left: 7px;
+    text-transform:capitalize;
+}
+
+#formOwner{
+    margin: 0 auto;
+    background: rgba(0,186,255,0.77);
+    width:200px ;
+    height: 450px;
+    padding:10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82)
+}
+
+#addO{
+    cursor: pointer;
+    padding:18px 30px;
+    height: 30px;
+    color:#fff;
+    background: #5200a5;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+
+#addO.hover {
+    opacity: .89;
+    font-weight: 50px;
+    transform: scale(1.1);
+}
+
+#addH{
+    cursor: pointer;
+    padding:18px 30px;
+    height: 30px;
+    color:#fff;
+    background: #5200a5;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+
+#addH.hover {
+    opacity: .89;
+    font-weight: 50px;
+    transform: scale(1.1);
+}
+#inpH{
+    
+    width: 85px;
+}
+
+#inpA{
+    
+    width: 70px;
+}
+
+#mainbox{
+    font-size: 24px;
+    cursor: pointer;
+    transition:all .6s ;
+}
+.sidemenu{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 0px;
+    background-color: rgb(91, 145, 211);
+    z-index: 1;
+    padding-top: 100px;
+    overflow-x: hidden;
+    transition:all .5s ;
+
+}
+
+#formClient{
+    margin: 0 auto;
+    background: rgba(0,186,255,0.77);
+    width:200px ;
+    height: 630px;
+    padding:10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82)
+}
+
+
+#formHouse{
+    margin: 0 auto;
+    background: rgba(0,186,255,0.77);
+    width:200px ;
+    height: 695px;
+    padding:10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82)
+}
+
+
+
+#addC{
+    cursor: pointer;
+    padding:18px 30px;
+    height: 30px;
+    color:#fff;
+    background: #5200a5;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+
+#addC.hover {
+    opacity: .89;
+    font-weight: 50px;
+    transform: scale(1.1);
+}
+
+
+.sidemenu a {
+
+    padding:8px 8px 8px 64px;
+    text-decoration: none;
+    font-size: 20px;
+    color: grey;
+    display: block;
+}
+.sidemenu a:hover{
+    color: honeydew;
+}
+.sidemenu .closebtn{
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 30px;
+
+}

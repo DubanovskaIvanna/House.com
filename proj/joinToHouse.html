@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title  >Join.To.House.com</title>
+        <link rel="shortcut icon" href="smalLogo.png" type="image/png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <a class="header" href="index.html">
+        <!-- <img class="logo_med" src="./logo.png" style="max-height:65px"> -->
+        </a>
+        <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body id="main">
+    <div id="mainbox" onclick="openFunction()">&#9776;Open </div>
+    <div id="menu" class="sidemenu">
+        <a href="#" id="home"> Home </a>
+        <!-- <a href="#" id="find"> Find</a> -->
+        <a href="#" class = "login"> Login </a>
+        <a href="#" id ="join"> Join to House.com</a>
+        <a href="#" class="closebtn" onclick="closeFunction()">&times;  </a>
+        
+    </div>
+
+    <font  size = 4 >
+        <br>
+        <br>
+        <form method="post" id="formOwner" style ="font-family: Cambria;" >
+            <h3>Приєднайся до HOUSE.COM</h3>
+            <h5>Зареєструй своє помешкання</h5>
+            <div class="formBox">
+                <label for="na">Name</label>
+                <input type="text" placeholder="Ivanka" id="nameO">
+            </div>
+            <div class="formBox">
+                <label for="sur">Surname</label>
+                <input type="text" placeholder="Dub" id="surnameO">
+            </div>
+            <div class="formBox">
+                <label for="log">Login</label>
+                <input type="text" placeholder="*********" id="formloginO">
+            </div>
+            <div class="formBox">
+                <label for="pas">Password</label>
+                <input type="text" placeholder="*****" id="passwordO">
+            </div>
+            <div class="formBox">
+                <label for="em">Email</label>
+                <input type="text" placeholder="*************@*****.com" id="emailO">
+            </div>
+            <br>
+            
+           
+            <div class="formBox"
+            <!-- "alert('Now you can add youre apartaments')" -->
+                <button id="addO"  onclick="closeFunctionFormOwner()">Submit</button>
+            </div>
+        </form>
+            <div id="msg">
+                <preO></preO>
+            </div>
+<!-- ФОРМА ДЛЯ ХАТКИ -->
+            
+        <form method="post" id="formHouse" style ="font-family: Cambria;" >
+            <h1 title="">Реєстрація хатки </h1>
+            <div class="formBox">
+                <label for="na">Name</label>
+                <input type="text" placeholder="Perfect house" id="nameH">
+            </div>
+            <div class="formBox">
+                <label for="sur">Country</label>
+                <input type="text" placeholder="USA" id="country">
+            </div>
+            <div class="formBox">
+                <label for="log">City</label>
+                <input type="text" placeholder="New Yourk" id="city">
+            </div>
+            <div class="formBox">
+                <label for="pas">ZIP code</label>
+                <input type="text" placeholder="79495" id="zip">
+            </div>
+            <div class="formBox">
+                <label for="em">Prace per day</label>
+                <input type="text" placeholder="100$" id="prace">
+            </div>
+            <br>
+            <div class="formBox">Allowable animals?
+            <br>
+            Yes<input id ="inpA" type ="checkbox" onclick="checkCheckBox()" value ="false" >
+            </div>
+            <br>
+            <div class="formBox">How many bedrooms do you have?
+                <br>
+                1<input class="inpH" id ="inpH1" type ="checkbox" " value ="2" >
+                <br>
+                2<input class="inpH" id ="inpH2" type ="checkbox" " value ="2" >
+                <br>
+                3<input class="inpH" id ="inpH3" type ="checkbox" " value ="2" >
+                <br>
+                more...<input class="inpH" id ="inpH4" type ="checkbox" " value ="2" >
+                </div>
+                <br>
+            <div class="formBox">
+            <center><button id="addH" onclick="closeFormHouse()"  >Submit</button></center>  
+            </div>
+            <div id="msg">
+                <preH></preH>
+            </div>
+
+    <script type="text/javascript" >
+        function hideFHouse() {
+            $("#formHouse").hide();
+        }
+        hideFHouse();
+        function openFunction() {
+            document.getElementById("menu").style.width="300px";
+            document.getElementById("mainbox").style.marginLeft = "300px";
+           
+        }
+        function closeFunction(){
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("mainbox").style.marginLeft="0px";
+            document.getElementById("mainbox").innerHTML="&#9776;Open";
+        } 
+        
+        $(".login").on("click",function(){
+            $(".login").attr("href", "./login.html");
+        })
+        $("#home").on("click" , function(){
+                window.location.href = './index.html';
+            }
+        )
+        $("#find").on("click" , function(){
+                window.location.href = './find.html';
+            }
+        )
+
+        $("#join").on("click" , function(){
+                window.location.href = './joinToHouse.html';
+            }
+        )
+        var animals = document.getElementById("inpA");
+        function checkCheckBox() {
+            var checkBox = animals;
+            if (checkBox.checked == true){
+                return animals.value = true;
+                } else {animals.value = false ;
+            }
+        }
+        checkCheckBox(animals);
+
+
+        var inpH1 = document.getElementById("inpH1");
+        var inpH2 = document.getElementById("inpH2");
+        var inpH3 = document.getElementById("inpH3");
+        var inpH4 = document.getElementById("inpH4");    
+
+        var bedroom = 2;
+
+
+
+        function checkFullEmail (str){
+    
+            let regExp = /^([A-Za-z0-9]+\w*[\-]?[\.]?\w*[@]\w{2,10}[\.][A-Za-z0-9]+)$/;
+            let res = regExp.test(str);
+            if (res){
+                return console.log("Email is correct!");
+            }else {
+                alert("Email is not correct! Please write it again");
+            }
+        }
+
+        let owners = [] ;
+            const addOwners = (ev) =>{
+                ev.preventDefault();
+                let owner ={
+                    id: Date.now(),
+                    name: document.getElementById('nameO').value,
+                    surname:document.getElementById('surnameO').value,
+                    login:document.getElementById('formloginO').value,
+                    password:document.getElementById('passwordO').value,
+                    email:document.getElementById('emailO').value,
+                }  
+            checkFullEmail(document.getElementById('emailO').value);       
+            owners.push(owner);
+            document.forms[0].reset();
+            console.warn('added', {owners});
+            let preO = document.querySelector('#msg preO');
+            //LOCALSTORAGE
+            localStorage.setItem('MyOwners',JSON.stringify(owners));
+
+        }
+        document.addEventListener('DOMContentLoaded',()=>{
+        document.getElementById('addO').addEventListener('click',addOwners);
+        })
+        function closeFunctionFormOwner() {
+            $("#formOwner").hide();
+            alert("Now you can add your house!");
+            $("#formHouse").show();
+            
+        }
+
+        function closeFormHouse() {
+
+            $("#formHouse").hide();
+            
+        }
+        let houses = [] ;
+            const addHouses = (ev) =>{
+                ev.preventDefault();
+                let house ={
+                    id: Date.now(),
+                    name: document.getElementById('nameH').value,
+                    country:document.getElementById('country').value,
+                    city:document.getElementById('city').value,
+                    zip:document.getElementById('zip').value,
+                    prace:document.getElementById('prace').value,
+                    animals:document.getElementById('inpA').value,
+                    bedroom:bedroom
+                }  
+                
+            houses.push(house);
+            document.forms[0].reset();
+            console.warn('added', {houses});
+            let preH = document.querySelector('#msg preH');
+            //LOCALSTORAGE
+            localStorage.setItem('Houses',JSON.stringify(houses));
+           
+            
+
+        }
+        document.addEventListener('DOMContentLoaded',()=>{
+        document.getElementById('addH').addEventListener('click',addHouses);
+        })
+    </script>
+</body>
+</html>

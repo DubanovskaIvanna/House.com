@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title  >House.com</title>
+    <link rel="shortcut icon" href="smalLogo.png" type="image/png">
+    <h3 style=" font-family: 'Times New Roman', Times, serif; color: #3A3A3A;">Now you can booking your perfect House</h3>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="mainbox" onclick="openFunction()">&#9776;Open </div>
+    <div id="menu" class="sidemenu">
+        <a href="#" id="home"> Home </a>
+        <!-- <a href="#" id="find"> Find</a> -->
+        <a href="#" class = "login"> Login </a>
+        <a href="#" id ="join"> Join to House.com</a>
+        <a href="#" class="closebtn" onclick="closeFunction()">&times;  </a>
+        
+    </div>
+    <script type="text/javascript" >
+        function openFunction() {
+            document.getElementById("menu").style.width="300px";
+            document.getElementById("mainbox").style.marginLeft = "300px";
+            // document.getElementById("mainbox").innerHTML = "Cklick on cross element and Close Menu";
+        }
+        function closeFunction(){
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("mainbox").style.marginLeft="0px";
+            document.getElementById("mainbox").innerHTML="&#9776;Open";
+        } 
+        
+        $(".login").on("click",function(){
+            $(".login").attr("href", "./index.html");
+        })
+        $("#home").on("click" , function(){
+                window.location.href = './index.html';
+            }
+        )
+        $("#find").on("click" , function(){
+                window.location.href = './find.html';
+            }
+        )
+
+        $("#join").on("click" , function(){
+                window.location.href = './joinToHouse.html';
+            }
+        )
+    </script>
+</body>
+</html>

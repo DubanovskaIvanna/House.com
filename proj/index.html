@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title  >House.com</title>
+
+    <link rel="shortcut icon" href="smalLogo.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <div id="mainbox" onclick="openFunction()">&#9776;Open </div>
+    <div id="menu" class="sidemenu">
+        <a href="#" id="home"> Home </a>
+        <!-- <a href="#" id="find"> Find</a> -->
+        <a href="#" class = "login"> Login </a>
+        <a href="#" id ="join"> Join to House.com</a>
+        <a href="#" class="closebtn" onclick="closeFunction()">&times;  </a>
+        
+    </div>
+    <div class ="room" id="name"></div>
+    <div class ="room" id="country"></div>
+    <div class ="room" id="city"></div>
+    <div class ="room" id="zip"></div>
+    <div class ="room" id="prace"></div>
+    <div class ="room" id="animals"></div>
+    <div class ="room" id="country"></div>
+    <div class ="room" id="bedroom"></div>
+    
+    <script type="text/javascript" >
+        function openFunction() {
+            document.getElementById("menu").style.width="300px";
+            document.getElementById("mainbox").style.marginLeft = "300px";
+            // document.getElementById("mainbox").innerHTML = "Cklick on cross element and Close Menu";
+        }
+        function closeFunction(){
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("mainbox").style.marginLeft="0px";
+            document.getElementById("mainbox").innerHTML="&#9776;Open";
+        } 
+        
+        $(".login").on("click",function(){
+            $(".login").attr("href", "./login.html");
+        })
+        $("#home").on("click" , function(){
+                window.location.href = './index.html';
+            }
+        )
+        $("#find").on("click" , function(){
+                window.location.href = './find.html';
+            }
+        )
+
+        $("#join").on("click" , function(){
+                window.location.href = './joinToHouse.html';
+            }
+        )
+    
+    let temp1 = JSON.parse(localStorage.getItem('Houses'));
+    console.log(temp1);
+    document.getElementById("name").innerHTML = temp1[0].name;
+    document.getElementById("country").innerHTML = temp1[0].country;
+    document.getElementById("city").innerHTML = temp1[0].city;
+    document.getElementById("zip").innerHTML = temp1[0].zip;
+    document.getElementById("prace").innerHTML = temp1[0].prace;
+    document.getElementById("animals").innerHTML = temp1[0].animals;
+    document.getElementById("bedroom").innerHTML = temp1[0].bedroom;
+        
+       
+        </script>
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title  >House.com</title>
+    <link rel="shortcut icon" href="smalLogo.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <a class="header" href="index.html">
+        <img class="logo_med" src="./logo.png" style="max-height:65px">
+    </a>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="mainbox" onclick="openFunction()">&#9776;Open </div>
+    <div id="menu" class="sidemenu">
+        <a href="#" id="home"> Home </a>
+        <!-- <a href="#" id="find"> Find</a> -->
+        <a href="#" class = "login"> Login </a>
+        <a href="#" id ="join"> Join to House.com</a>
+        <a href="#" class="closebtn" onclick="closeFunction()">&times;  </a>
+        
+    </div>
+
+    <font  size = 4 >
+        <br>
+        <br>
+        <form method="post" id="formClient" style ="font-family: Cambria;" >
+            <h1 title="Форма реєстрації на сайті">Реєстрація</h1>
+            <div class="formBox">
+                <label for="na">Name</label>
+                <input type="text" placeholder="Ivanka" id="name">
+            </div>
+            <div class="formBox">
+                <label for="sur">Surname</label>
+                <input type="text" placeholder="Dub" id="surname">
+            </div>
+            <div class="formBox">
+                <label for="log">Login</label>
+                <input type="text" placeholder="*********" id="formlogin">
+            </div>
+            <div class="formBox">
+                <label for="pas">Password</label>
+                <input type="text" placeholder="*****" id="password">
+            </div>
+            <div class="formBox">
+                <label for="em">Email</label>
+                <input type="text" placeholder="*************@*****.com" id="email">
+            </div>
+            <br>
+            <div class="formBox">Are you travel on business?
+            <br>
+            Yes<input id ="inpB" type ="checkbox" onclick="checkCheckBox()" value ="false" >
+            </div>
+            <br>
+            <div class="formBox">Are you traveling with children?
+            <br>
+            Yes<input id ="inpC" type ="checkbox" onclick="checkCheckBox()" value ="false" >
+            </div>
+            <div class="formBox">
+              <center><button id="addC"  onclick="window.location.href = './find.html';" >Submit</button></center>  
+            </div>
+            <div id="msg">
+                <pre></pre>
+            </div>
+
+    <script type="text/javascript" >
+        function openFunction() {
+            document.getElementById("menu").style.width="300px";
+            document.getElementById("mainbox").style.marginLeft = "300px";
+          
+        }
+        function closeFunction(){
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("mainbox").style.marginLeft="0px";
+            document.getElementById("mainbox").innerHTML="&#9776;Open";
+        } 
+        
+        $(".login").on("click",function(){
+            $(".login").attr("href", "./login.html");
+        })
+        $("#home").on("click" , function(){
+                window.location.href = './index.html';
+            }
+        )
+        $("#find").on("click" , function(){
+                window.location.href = './find.html';
+            }
+        )
+
+        $("#join").on("click" , function(){
+                
+                window.location.href = './joinToHouse.html';
+            }
+        )
+    
+
+        function checkFullEmail (str){
+    
+            let regExp = /^([A-Za-z0-9]+\w*[\-]?[\.]?\w*[@]\w{2,10}[\.][A-Za-z0-9]+)$/;
+            let res = regExp.test(str);
+            if (res){
+                return console.log("Email is correct!");
+            }else {
+                alert("Email is not correct! Please write it again");
+            }
+        }
+
+        var one = document.getElementById("inpB");
+        var two = document.getElementById("inpC");
+
+        function checkCheckBox(str) {
+            var checkBox = str;
+            if (checkBox.checked == true){
+                return str.value = true;
+                } else {
+                    return str.value = false ;
+            }
+        }
+
+        checkCheckBox(one);
+        checkCheckBox(two);
+
+            let clients = [] ;
+            const addClient = (ev) =>{
+                ev.preventDefault();
+                let client ={
+                    id: Date.now(),
+                    name: document.getElementById('name').value,
+                    surname:document.getElementById('surname').value,
+                    login:document.getElementById('formlogin').value,
+                    password:document.getElementById('password').value,
+                    email:document.getElementById('email').value,
+                    business: document.getElementById('inpB').value,
+                    children:document.getElementById('inpC').value
+                }  
+            checkFullEmail(document.getElementById('email').value);       
+            clients.push(client);
+            document.forms[0].reset();
+            console.warn('added', {clients});
+            let pre = document.querySelector('#msg pre');
+            //LOCALSTORAGE
+            localStorage.setItem('MyClientList',JSON.stringify(clients));
+
+        }
+
+
+        document.addEventListener('DOMContentLoaded',()=>{
+        document.getElementById('addC').addEventListener('click',addClient);
+        
+    })
+        
+                
+    </script>
+    </form>
+    
+</body>
+</html>
